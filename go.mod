@@ -1,4 +1,4 @@
-module lunar_primitives
+module lunar
 
 go 1.19
 
