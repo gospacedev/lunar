@@ -22,18 +22,18 @@ func NewConfig() {
 		fmt.Println(err)
 	}
 
-	// If code
-	fmt.Println("Enter new filepath:")
+	if vp.Get("path") == "" {
+		fmt.Println("Enter new filepath:")
 
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-
-	newPath := scanner.Text()
-	fmt.Println(newPath)
-
-	fmt.Println("The new path is " + newPath)
-
-	vp.Set("path", newPath)
-	vp.WriteConfig()
-
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+	
+		newPath := scanner.Text()
+		fmt.Println(newPath)
+	
+		fmt.Println("The new path is " + newPath)
+	
+		vp.Set("path", newPath)
+		vp.WriteConfig()
+	}
 }
