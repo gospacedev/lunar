@@ -1,4 +1,4 @@
-package main
+package internal
 
 import (
 	"log"
@@ -10,8 +10,8 @@ import (
 	"github.com/faiface/beep/speaker"
 )
 
-// Play mp3 file
-func mp3Player(music string) {
+// Plays mp3 file
+func MusicPlayer(music string) {
 	f, err := os.Open(music)
 	if err != nil {
 		log.Fatal(err)

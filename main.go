@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 
+	in "lunar/internal"
+
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/viper"
 )
@@ -12,20 +14,16 @@ import (
 func main() {
 	vp := viper.New()
 
-	// Creating json and storing path containing songs
 	vp.SetConfigName("config")
 	vp.SetConfigType("json")
 	vp.AddConfigPath(".")
 
-	/* If the path is empty ask the user for input and save it */
-	//if vp.GetString("path") == "" {
-		newFilePath()
-	//}
+	in.NewFilePath()
 
 	// Reading config file
 	err := vp.ReadInConfig()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error: cannot read config file")
 	}
 
 	filepath, err := os.ReadDir(vp.GetString("path"))
@@ -35,13 +33,13 @@ func main() {
 
 	var files []string
 
-	// Get all the mp3 files in a directory named music in current directory
+	// Get file names in folder
 	for _, f := range filepath {
 		files = append(files, f.Name())
 	}
 
 	prompt := promptui.Select{
-		Label: "Select music",
+		Label: "Select music:",
 		Items: files,
 	}
 
@@ -53,6 +51,6 @@ func main() {
 	}
 
 	// Play selected music
-	mp3Player(vp.GetString("path") + "/" + result)
+	in.MusicPlayer(vp.GetString("path") + "/" + result)
 
 }
