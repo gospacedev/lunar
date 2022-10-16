@@ -19,7 +19,7 @@ func main() {
 
 	/* If the path is empty ask the user for input and save it */
 	//if vp.GetString("path") == "" {
-		NewConfig()
+		newFilePath()
 	//}
 
 	// Reading config file

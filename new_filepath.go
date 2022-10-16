@@ -8,7 +8,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-func NewConfig() {
+func newFilePath() {
 	vp := viper.New()
 
 	// Creating json and storing path containing songs
