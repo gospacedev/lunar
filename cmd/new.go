@@ -13,7 +13,7 @@ import (
 var newCmd = &cobra.Command{
 	Use:   "new",
 	Short: "Create new filepath",
-	Long: `Configure Lunar to the filepath that contains the mp3 files`,
+	Long:  `Configure Lunar to the filepath that contains the mp3 files`,
 	Run: func(cmd *cobra.Command, args []string) {
 		in.NewFilePath()
 	},

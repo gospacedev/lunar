@@ -39,10 +39,10 @@ func MusicPlayer(music string) {
 	speaker.Play(ctrl)
 
 	tbErr := tb.Init()
-    if tbErr != nil {
-        panic(tbErr)
-    }
-    defer tb.Close()
+	if tbErr != nil {
+		panic(tbErr)
+	}
+	defer tb.Close()
 
 	fmt.Println("Ues enter key to pause and resume: Enter")
 	fmt.Println("Press the arrow keys to change volume: ↓ ↑")

@@ -25,7 +25,7 @@ func Start() {
 	filepath, err := os.ReadDir(vp.GetString("path"))
 	if err != nil {
 		log.Fatal("No file path delected: run lunar add")
-    }
+	}
 
 	var files []string
 

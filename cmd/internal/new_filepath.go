@@ -22,14 +22,13 @@ func NewFilePath() {
 		fmt.Println("Error: filepath has no mp3 files")
 	}
 
-
 	fmt.Println("Enter new filepath...")
 
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
-	
+
 	newPath := scanner.Text()
-	
+
 	vp.Set("path", newPath)
 	vp.WriteConfig()
 
