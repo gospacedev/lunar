@@ -1,4 +1,4 @@
-module lunar
+module github.com/gospacedev/lunar
 
 go 1.19
 
