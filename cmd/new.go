@@ -5,7 +5,7 @@ Copyright © 2022 Grantley Cullar grantcullar@gmail.com
 package cmd
 
 import (
-	in "lunar/cmd/internal"
+	in "github.com/gospacedev/lunar/cmd/internal"
 
 	"github.com/spf13/cobra"
 )

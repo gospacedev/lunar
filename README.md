@@ -7,7 +7,7 @@ Lunar is a CLI Music Player for terminal enthusiasts
 Install Lunar by running this command:
 
 ```cmd
-
+go get github.com/gospacedev/lunar
 go install github.com/gospacedev/lunar
 ```
 

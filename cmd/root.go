@@ -7,7 +7,7 @@ package cmd
 import (
 	"os"
 
-	in "lunar/cmd/internal"
+	in "github.com/gospacedev/lunar/cmd/internal"
 
 	"github.com/spf13/cobra"
 )
