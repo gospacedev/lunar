@@ -16,21 +16,26 @@ func NewFilePath() {
 	vp.SetConfigType("json")
 	vp.AddConfigPath(".")
 
+	if vp.GetString("path") == "" {
+		NewFilePath()
+	}
+
 	// Reading config file
 	err := vp.ReadInConfig()
 	if err != nil {
 		fmt.Println("Error: filepath has no mp3 files")
 	}
 
-	if vp.Get("path") == "" {
-		fmt.Println("Enter new filepath...")
 
-		scanner := bufio.NewScanner(os.Stdin)
-		scanner.Scan()
+	fmt.Println("Enter new filepath...")
+
+	scanner := bufio.NewScanner(os.Stdin)
+	scanner.Scan()
 	
-		newPath := scanner.Text()
+	newPath := scanner.Text()
 	
-		vp.Set("path", newPath)
-		vp.WriteConfig()
-	}
+	vp.Set("path", newPath)
+	vp.WriteConfig()
+
+	fmt.Println("Filepath successfully added")
 }
