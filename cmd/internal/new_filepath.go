@@ -16,10 +16,6 @@ func NewFilePath() {
 	vp.SetConfigType("json")
 	vp.AddConfigPath(".")
 
-	if vp.GetString("path") == "" {
-		NewFilePath()
-	}
-
 	// Reading config file
 	err := vp.ReadInConfig()
 	if err != nil {

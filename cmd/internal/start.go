@@ -35,18 +35,16 @@ func Start() {
 	}
 
 	prompt := promptui.Select{
-		Label: "Select music:",
+		Label: "Select music",
 		Items: files,
 	}
 
-	// result is the item slected
+	// result is the file slected
 	_, result, err := prompt.Run()
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
-		return
 	}
 
 	// Play selected music
 	MusicPlayer(vp.GetString("path") + "/" + result)
-
 }
