@@ -1,6 +1,6 @@
 # Lunar
 
-Lunar is a music player for terminal enthusiasts
+Lunar is a music player for terminal enthusiasts.
 
 ## Build
 
