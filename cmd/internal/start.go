@@ -8,6 +8,7 @@ import (
 	"github.com/spf13/viper"
 )
 
+// The menu where the user can choose what audio file to play
 func Start() {
 	vp := viper.New()
 
@@ -40,12 +41,11 @@ func Start() {
 		Items: files,
 	}
 
-	// result is the file slected
-	_, result, err := prompt.Run()
+	_, selected, err := prompt.Run()
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
 	}
 
 	// Play selected music
-	MusicPlayer(vp.GetString("path") + "/" + result, result)
+	MusicPlayer(vp.GetString("path") + "/" + selected, selected)
 }

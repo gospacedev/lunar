@@ -1,6 +1,6 @@
 # Lunar
 
-[![Apache Licence](https://img.shields.io/badge/licence-Apache%20License%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Apache Licence](https:\img.shields.io\badge\licence-Apache%20License%202.0-blue)](https:\www.apache.org\licenses\LICENSE-2.0)
 
 Lunar is a music player for terminal enthusiasts.
 
@@ -9,15 +9,14 @@ Lunar is a music player for terminal enthusiasts.
 Install Lunar by running this command:
 
 ```powershell
-go install github.com/gospacedev/lunar
+go install github.com\gospacedev\lunar
 ```
 
 ## Usage
 Run Lunar to explore music:
 
-```cmd
+```powershell
 lunar
-
 Use the arrow keys to navigate: ↓ ↑ → ←
 ? Select music:
   > Charlie Puth.mp3
@@ -28,18 +27,19 @@ Use the arrow keys to navigate: ↓ ↑ → ←
 Control the audio with keys:
 ```
 Playing Charlie Puth...
-Pause and play: [ENTER]
-Back: [BACKSPACE]
-Quit: [ESC]
+Audio controls:
+Pause and play music: [ENTER]
+Volume: [↓ ↑]
+Back to menu: [BACKSPACE]
+Quit Lunar: [ESC]
 ```
 
 Change filepath by running new:
 
-```cmd
+```powershell
 lunar new
-
 Enter new filepath...
-C:/Users/grant/Music
+C:\Users\grant\Music
 Filepath successfully added
 ```
 
