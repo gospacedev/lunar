@@ -35,7 +35,3 @@ Control the audio with keys:
 
 +-Audio Controls-----------------------+                                                                                                                             |Pause and play music: [ENTER]         |                                                                                                                             |Volume: [↓ ↑]                         |                                                                                                                             |Speed:  [← →]                         |                                                                                                                             |Noraml Speed: [Ctrl + N]              |                                                                                                                             |Back to menu: [BACKSPACE]             |                                                                                                                             |Quit Lunar: [ESC]                     |                                                                                                                             +--------------------------------------+   
 ```
-
-## Todo List
-
-- add new options: shuffle and playback
