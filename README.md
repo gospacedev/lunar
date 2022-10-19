@@ -1,7 +1,7 @@
 # Lunar
 
 Lunar is a music player for terminal enthusiasts.
-fvfvfvv
+
 ## Build
 
 Install Lunar
