@@ -31,7 +31,16 @@ Use the arrow keys to navigate: ↓ ↑ → ←
 
 Control the audio with keys:
 ```
-+-Lunar--------------------------------+                                                                                                                             |Playing Charlie Puth                  |                                                                                                                             +--------------------------------------+                                                                                                                             
++-Lunar--------------------------------+
+|Playing Charlie Puth                  |
++--------------------------------------+
 
-+-Audio Controls-----------------------+                                                                                                                             |Pause and play music: [ENTER]         |                                                                                                                             |Volume: [↓ ↑]                         |                                                                                                                             |Speed:  [← →]                         |                                                                                                                             |Noraml Speed: [Ctrl + N]              |                                                                                                                             |Back to menu: [BACKSPACE]             |                                                                                                                             |Quit Lunar: [ESC]                     |                                                                                                                             +--------------------------------------+   
++-Audio Controls-----------------------+
+|Pause and play music: [ENTER]         |
+|Volume: [↓ ↑]                         |
+|Speed:  [← →]                         |
+|Noraml Speed: [Ctrl + N]              |
+|Back to menu: [BACKSPACE]             |
+|Quit Lunar: [ESC]                     |
++--------------------------------------+
 ```
