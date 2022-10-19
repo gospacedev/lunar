@@ -6,7 +6,7 @@ Lunar is a music player for terminal enthusiasts.
 
 Install Lunar
 
-```powershell
+```
 go install github.com\gospacedev\lunar
 ```
 
