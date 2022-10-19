@@ -17,7 +17,7 @@ var newpathCmd = &cobra.Command{
 	Use:   "newpath",
 	Short: "Create newpath filepath",
 	Long:  `Configure Lunar to the filepath that contains the mp3 files`,
-	Args: cobra.MinimumNArgs(1),
+	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		argsString := strings.Join(args, "")
 

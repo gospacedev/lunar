@@ -46,5 +46,5 @@ func Start() {
 	}
 
 	// Play selected music
-	MusicPlayer(vp.GetString("path") + "/" + selected, selected)
+	AudioPlayer(vp.GetString("path")+"/"+selected, selected)
 }

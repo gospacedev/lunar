@@ -1,6 +1,5 @@
 /*
 Copyright © 2022 Grantley Cullar grantcullar@gmail.com
-
 */
 package cmd
 
