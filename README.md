@@ -1,7 +1,5 @@
 # Lunar
 
-[![Apache Licence](https:\img.shields.io\badge\licence-Apache%20License%202.0-blue)](https:\www.apache.org\licenses\LICENSE-2.0)
-
 Lunar is a music player for terminal enthusiasts.
 
 ## Build
