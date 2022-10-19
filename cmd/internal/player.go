@@ -11,9 +11,9 @@ import (
 	"github.com/faiface/beep/mp3"
 	"github.com/faiface/beep/speaker"
 
-	tb "github.com/nsf/termbox-go"
 	ui "github.com/gizak/termui/v3"
 	"github.com/gizak/termui/v3/widgets"
+	tb "github.com/nsf/termbox-go"
 )
 
 // Plays mp3 file
@@ -72,7 +72,6 @@ Quit Lunar: [ESC]
 	`
 	c.SetRect(0, 4, 40, 12)
 
-
 	ui.Render(p, c)
 
 	// Detect keys
@@ -82,21 +81,21 @@ Quit Lunar: [ESC]
 		speaker.Lock()
 
 		switch {
-		case event.Key == tb.KeyEnter:// puase audio
+		case event.Key == tb.KeyEnter: // puase audio
 			ctrl.Paused = !ctrl.Paused
-		case event.Key == tb.KeyArrowUp:// increase volume
+		case event.Key == tb.KeyArrowUp: // increase volume
 			volume.Volume += 0.2
-		case event.Key == tb.KeyArrowDown:// decrease volume
+		case event.Key == tb.KeyArrowDown: // decrease volume
 			volume.Volume -= 0.2
-		case event.Key == tb.KeyArrowRight:// increase speed by x1.1
+		case event.Key == tb.KeyArrowRight: // increase speed by x1.1
 			speedy.SetRatio(speedy.Ratio() + 0.1)
-		case event.Key == tb.KeyArrowLeft:// decrease speed by x1.1
+		case event.Key == tb.KeyArrowLeft: // decrease speed by x1.1
 			speedy.SetRatio(speedy.Ratio() - 0.1)
-		case event.Key == tb.KeyCtrlN:// Normalize speed
+		case event.Key == tb.KeyCtrlN: // Normalize speed
 			speedy.SetRatio(1)
-		case event.Key == tb.KeyBackspace:// go back to menu
+		case event.Key == tb.KeyBackspace: // go back to menu
 			Start()
-		case event.Key == tb.KeyEsc:// Exit Lunar
+		case event.Key == tb.KeyEsc: // Exit Lunar
 			os.Exit(0)
 		}
 
