@@ -19,7 +19,7 @@ func NewFilePath() {
 	// Reading config file
 	err := vp.ReadInConfig()
 	if err != nil {
-		fmt.Println("Error: filepath has no mp3 files")
+		fmt.Println(err)
 	}
 
 	fmt.Println("Enter new filepath...")

@@ -2,7 +2,6 @@ package internal
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/manifoldco/promptui"
@@ -19,12 +18,14 @@ func Start() {
 	// Reading config file
 	err := vp.ReadInConfig()
 	if err != nil {
-		fmt.Println("Run lunar add")
+		fmt.Println(err)
 	}
 
 	filepath, err := os.ReadDir(vp.GetString("path"))
 	if err != nil {
-		log.Fatal("No file path delected: run lunar add")
+		fmt.Println("No filepath detected")
+		NewFilePath()
+		os.Exit(0)
 	}
 
 	var files []string
@@ -46,5 +47,5 @@ func Start() {
 	}
 
 	// Play selected music
-	MusicPlayer(vp.GetString("path") + "/" + result)
+	MusicPlayer(vp.GetString("path") + "/" + result, result)
 }

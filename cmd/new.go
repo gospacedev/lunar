@@ -16,6 +16,7 @@ var newCmd = &cobra.Command{
 	Long:  `Configure Lunar to the filepath that contains the mp3 files`,
 	Run: func(cmd *cobra.Command, args []string) {
 		in.NewFilePath()
+		in.Start()
 	},
 }
 
