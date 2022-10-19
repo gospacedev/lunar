@@ -1,7 +1,6 @@
 package internal
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -13,10 +12,17 @@ import (
 	"github.com/faiface/beep/speaker"
 
 	tb "github.com/nsf/termbox-go"
+	ui "github.com/gizak/termui/v3"
+	"github.com/gizak/termui/v3/widgets"
 )
 
 // Plays mp3 file
 func AudioPlayer(file string, name string) {
+	if err := ui.Init(); err != nil {
+		log.Fatalf("failed to initialize termui: %v", err)
+	}
+	defer ui.Close()
+
 	f, err := os.Open(file)
 	if err != nil {
 		log.Fatal(err)
@@ -48,16 +54,26 @@ func AudioPlayer(file string, name string) {
 	defer tb.Close()
 
 	// Print audio file name and key controls
-	fmt.Println("Playing " + strings.Replace(name, ".mp3", "", 1) + "...")
-	fmt.Println()
-	fmt.Println("Audio controls:")
-	fmt.Println()
-	fmt.Println("Pause and play music: [ENTER]")
-	fmt.Println("Volume: [↓ ↑]")
-	fmt.Println("Speed:  [← →]")
-	fmt.Println("Noraml Speed: [Ctrl + N]")
-	fmt.Println("Back to menu: [BACKSPACE]")
-	fmt.Println("Quit Lunar: [ESC]")
+	selectedAudio := "Playing " + strings.Replace(name, ".mp3", "", 1)
+
+	p := widgets.NewParagraph()
+	p.Title = "Lunar"
+	p.Text = selectedAudio
+	p.SetRect(0, 0, 40, 3)
+
+	c := widgets.NewParagraph()
+	c.Title = "Audio Controls"
+	c.Text = `Pause and play music: [ENTER]
+Volume: [↓ ↑]
+Speed:  [← →]
+Noraml Speed: [Ctrl + N]
+Back to menu: [BACKSPACE]
+Quit Lunar: [ESC]
+	`
+	c.SetRect(0, 4, 40, 12)
+
+
+	ui.Render(p, c)
 
 	// Detect keys
 	for {
