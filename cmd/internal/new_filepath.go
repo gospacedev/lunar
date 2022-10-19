@@ -1,15 +1,13 @@
 package internal
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 
 	"github.com/spf13/viper"
 )
 
 // Create new json file that stores filepath
-func NewFilePath() {
+func NewFilePath(newPath string) {
 	vp := viper.New()
 
 	vp.SetConfigName("config")
@@ -21,13 +19,6 @@ func NewFilePath() {
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	fmt.Println("Enter new filepath...")
-
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-
-	newPath := scanner.Text()
 
 	vp.Set("path", newPath)
 	vp.WriteConfig()

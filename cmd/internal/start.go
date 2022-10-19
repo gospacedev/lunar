@@ -24,8 +24,7 @@ func Start() {
 
 	filepath, err := os.ReadDir(vp.GetString("path"))
 	if err != nil {
-		fmt.Println("No filepath detected")
-		NewFilePath()
+		fmt.Println("No filepath detected: lunar newpath")
 		os.Exit(0)
 	}
 

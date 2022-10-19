@@ -11,6 +11,13 @@ go install github.com\gospacedev\lunar
 ```
 
 ## Usage
+Change filepath:
+
+```powershell
+lunar newpath "C:\Users\grant\Music"
+Filepath successfully added
+```
+
 Run Lunar to explore music:
 
 ```powershell
@@ -32,16 +39,6 @@ Back to menu: [BACKSPACE]
 Quit Lunar: [ESC]
 ```
 
-Change filepath by running new:
-
-```powershell
-lunar new
-Enter new filepath...
-C:\Users\grant\Music
-Filepath successfully added
-```
-
 ## Todo List
 
-- enter filepath as argument to lunar new command
 - add new options: change speed, shuffle, playback
