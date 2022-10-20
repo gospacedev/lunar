@@ -68,11 +68,11 @@ func AudioPlayer(file string, name string) {
 	c.Text = `Pause and play music: [ENTER]
 Volume: [↓ ↑]
 Speed:  [← →]
-Noraml Speed: [Ctrl + N]
+Normal Speed: [Ctrl + N]
 Back to menu: [BACKSPACE]
 Quit Lunar: [ESC]
 	`
-	c.SetRect(0, 4, 40, 12)
+	c.SetRect(2, 4, 40, 12)
 	c.TitleStyle.Fg = ui.ColorYellow
 	c.BorderStyle.Fg = ui.ColorCyan
 

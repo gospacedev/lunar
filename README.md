@@ -39,7 +39,7 @@ Control the audio with keys:
 |Pause and play music: [ENTER]         |
 |Volume: [↓ ↑]                         |
 |Speed:  [← →]                         |
-|Noraml Speed: [Ctrl + N]              |
+|Normal Speed: [Ctrl + N]              |
 |Back to menu: [BACKSPACE]             |
 |Quit Lunar: [ESC]                     |                                                                                +--------------------------------------+
 ```
