@@ -60,6 +60,8 @@ func AudioPlayer(file string, name string) {
 	p.Title = "Lunar"
 	p.Text = selectedAudio
 	p.SetRect(0, 0, 40, 3)
+	p.TitleStyle.Fg = ui.ColorYellow
+	p.BorderStyle.Fg = ui.ColorCyan
 
 	c := widgets.NewParagraph()
 	c.Title = "Audio Controls"
@@ -71,6 +73,8 @@ Back to menu: [BACKSPACE]
 Quit Lunar: [ESC]
 	`
 	c.SetRect(0, 4, 40, 12)
+	c.TitleStyle.Fg = ui.ColorYellow
+	c.BorderStyle.Fg = ui.ColorCyan
 
 	ui.Render(p, c)
 
