@@ -41,5 +41,6 @@ Control the audio with keys:
 |Speed:  [← →]                         |
 |Noraml Speed: [Ctrl + N]              |
 |Back to menu: [BACKSPACE]             |
-|Quit Lunar: [ESC]                     |                                                                                +--------------------------------------+
+|Quit Lunar: [ESC]                     |
++--------------------------------------+
 ```
