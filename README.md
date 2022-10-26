@@ -36,11 +36,11 @@ Control the audio with keys:
 +--------------------------------------+
 
 +-Audio Controls-----------------------+
-|Pause and play music: [ENTER]         |
+|Pause / Pause: [ENTER]                |
 |Volume: [↓ ↑]                         |
 |Speed:  [← →]                         |
 |Normal Speed: [N]                     |
-|Back to menu: [BACKSPACE]             |
+|Back to Menu: [BACKSPACE]             |
 |Quit Lunar: [Q]                       |
 +--------------------------------------+
 ```

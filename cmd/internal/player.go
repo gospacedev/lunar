@@ -58,11 +58,11 @@ func AudioPlayer(file string, name string) {
 	// print audio controls
 	c := widgets.NewParagraph()
 	c.Title = "Audio Controls"
-	c.Text = `Pause and play music: [ENTER]
+	c.Text = `Pause / Play: [ENTER]
 Volume: [↓ ↑]
 Speed:  [← →]
 Normal Speed: [N]
-Back to menu: [Backspace]
+Back to Menu: [Backspace]
 Quit Lunar: [Q]
 	`
 
