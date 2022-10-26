@@ -36,7 +36,7 @@ Control the audio with keys:
 +--------------------------------------+
 
 +-Audio Controls-----------------------+
-|Pause / Pause: [ENTER]                |
+|Pause / Play: [ENTER]                 |
 |Volume: [↓ ↑]                         |
 |Speed:  [← →]                         |
 |Normal Speed: [N]                     |
