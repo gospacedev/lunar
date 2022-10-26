@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/faiface/beep v1.1.0
+	github.com/gizak/termui/v3 v3.1.0
 	github.com/manifoldco/promptui v0.9.0
 	github.com/spf13/cobra v1.6.0
 	github.com/spf13/viper v1.12.0
@@ -12,7 +13,6 @@ require (
 require (
 	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
-	github.com/gizak/termui/v3 v3.1.0 // indirect
 	github.com/hajimehoshi/go-mp3 v0.3.0 // indirect
 	github.com/hajimehoshi/oto v0.7.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
