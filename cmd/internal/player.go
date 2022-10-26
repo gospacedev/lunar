@@ -52,7 +52,6 @@ func AudioPlayer(file string, name string) {
 	p.Title = "Playing"
 	p.Text = selectedAudio
 	p.SetRect(0, 0, 40, 3)
-	p.TitleStyle.Fg = ui.ColorYellow
 	p.BorderStyle.Fg = ui.ColorCyan
 
 	// print audio controls
