@@ -27,8 +27,8 @@ func Menu() {
 
 	filepath, err := os.ReadDir(vp.GetString("path"))
 	if err != nil {
-		fmt.Println("No filepath detected: lunar newpath")
-		os.Exit(0)
+		fmt.Println("No filepath detected, to add new filepath run: lunar newpath")
+		os.Exit(1)
 	}
 
 	var files []string
