@@ -39,12 +39,8 @@ Control the audio with keys:
 |Pause and play music: [ENTER]         |
 |Volume: [↓ ↑]                         |
 |Speed:  [← →]                         |
-|Normal Speed: [Ctrl + N]              |
+|Normal Speed: [N]                     |
 |Back to menu: [BACKSPACE]             |
-|Quit Lunar: [ESC]                     |
+|Quit Lunar: [Q]                       |
 +--------------------------------------+
 ```
-
-## Todo
-
-Build a common UI for start and music player 

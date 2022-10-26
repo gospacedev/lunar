@@ -13,7 +13,6 @@ import (
 
 	ui "github.com/gizak/termui/v3"
 	"github.com/gizak/termui/v3/widgets"
-	tb "github.com/nsf/termbox-go"
 )
 
 // Plays mp3 file
@@ -46,13 +45,6 @@ func AudioPlayer(file string, name string) {
 	speedy := beep.ResampleRatio(4, 1, volume)
 	speaker.Play(speedy)
 
-	//initialize termbox
-	tbErr := tb.Init()
-	if tbErr != nil {
-		panic(tbErr)
-	}
-	defer tb.Close()
-
 	// Print audio file name and key controls
 	selectedAudio := "Playing " + strings.Replace(name, ".mp3", "", 1)
 
@@ -63,45 +55,55 @@ func AudioPlayer(file string, name string) {
 	p.TitleStyle.Fg = ui.ColorYellow
 	p.BorderStyle.Fg = ui.ColorCyan
 
+	// print audio controls
 	c := widgets.NewParagraph()
 	c.Title = "Audio Controls"
 	c.Text = `Pause and play music: [ENTER]
 Volume: [↓ ↑]
 Speed:  [← →]
-Normal Speed: [Ctrl + N]
-Back to menu: [BACKSPACE]
-Quit Lunar: [ESC]
+Normal Speed: [N]
+Back to menu: [Backspace]
+Quit Lunar: [Q]
 	`
-	c.SetRect(2, 4, 40, 12)
+
+	c.SetRect(0, 4, 40, 12)
 	c.TitleStyle.Fg = ui.ColorYellow
 	c.BorderStyle.Fg = ui.ColorCyan
 
-	ui.Render(p, c)
+	uiEvents := ui.PollEvents()
+	ticker := time.NewTicker(time.Second).C
+
+	draw := func() {
+		ui.Render(p, c)
+	}
 
 	// Detect keys
 	for {
-		event := tb.PollEvent()
 
-		speaker.Lock()
-
-		switch {
-		case event.Key == tb.KeyEnter: // puase audio
-			ctrl.Paused = !ctrl.Paused
-		case event.Key == tb.KeyArrowUp: // increase volume
-			volume.Volume += 0.2
-		case event.Key == tb.KeyArrowDown: // decrease volume
-			volume.Volume -= 0.2
-		case event.Key == tb.KeyArrowRight: // increase speed by x1.1
-			speedy.SetRatio(speedy.Ratio() + 0.1)
-		case event.Key == tb.KeyArrowLeft: // decrease speed by x1.1
-			speedy.SetRatio(speedy.Ratio() - 0.1)
-		case event.Key == tb.KeyCtrlN: // Normalize speed
-			speedy.SetRatio(1)
-		case event.Key == tb.KeyBackspace: // go back to menu
-			Start()
-		case event.Key == tb.KeyEsc: // Exit Lunar
-			os.Exit(0)
+		select {
+		case e := <-uiEvents:
+			switch e.ID {
+				case "<Enter>": // puase audio
+					ctrl.Paused = !ctrl.Paused
+				case "<Up>": // increase volume
+					volume.Volume += 0.2
+				case "<Down>": // decrease volume
+					volume.Volume -= 0.2
+				case "<Right>": // increase speed by x1.1
+					speedy.SetRatio(speedy.Ratio() + 0.1)
+				case "<Left>": // decrease speed by x1.1
+					speedy.SetRatio(speedy.Ratio() - 0.1)
+				case "n": // Normalize speed
+					speedy.SetRatio(1)
+				case "<Backspace>": // go back to menu
+					Start()
+				case "q": // Exit Lunar
+					os.Exit(0)	
+			}
+		case <-ticker:
+			draw()
 		}
+
 
 		//maximum and minimum volume and speed
 		switch {
@@ -114,7 +116,5 @@ Quit Lunar: [ESC]
 		case speedy.Ratio() <= 0.5:
 			speedy.SetRatio(0.5)
 		}
-
-		speaker.Unlock()
 	}
 }
