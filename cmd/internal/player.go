@@ -98,7 +98,7 @@ Quit Lunar: [Q]
 				case "<Backspace>": // go back to menu
 					Start()
 				case "q": // Exit Lunar
-					os.Exit(0)	
+					return
 			}
 		case <-ticker:
 			draw()
