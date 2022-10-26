@@ -22,7 +22,7 @@ var newpathCmd = &cobra.Command{
 		argsString := strings.Join(args, "")
 
 		in.NewFilePath(argsString)
-		in.Start()
+		in.Menu()
 	},
 }
 

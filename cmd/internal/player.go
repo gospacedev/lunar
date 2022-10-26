@@ -46,10 +46,10 @@ func AudioPlayer(file string, name string) {
 	speaker.Play(speedy)
 
 	// Print audio file name and key controls
-	selectedAudio := "Playing " + strings.Replace(name, ".mp3", "", 1)
+	selectedAudio := strings.Replace(name, ".mp3", "", 1) 
 
 	p := widgets.NewParagraph()
-	p.Title = "Lunar"
+	p.Title = "Playing"
 	p.Text = selectedAudio
 	p.SetRect(0, 0, 40, 3)
 	p.TitleStyle.Fg = ui.ColorYellow
@@ -57,7 +57,6 @@ func AudioPlayer(file string, name string) {
 
 	// print audio controls
 	c := widgets.NewParagraph()
-	c.Title = "Audio Controls"
 	c.Text = `Pause / Play: [ENTER]
 Volume: [↓ ↑]
 Speed:  [← →]
@@ -97,7 +96,7 @@ Quit Lunar: [Q]
 					speedy.SetRatio(1)
 				case "<C-<Backspace>>": // go back to menu
 					ctrl.Paused = !ctrl.Paused
-				    Start()
+				    Menu()
 				case "q": // quit Lunar
 					return
 			}

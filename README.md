@@ -22,20 +22,20 @@ Run Lunar to explore music:
 
 ```powershell
 lunar
-Use the arrow keys to navigate: ↓ ↑ → ←
-? Select music:
-  > Charlie Puth.mp3
-    The Weekend.mp3
-    Twenty One Pliots.mp3
++-Music List---------------------------+
+| Charlie Puth - Betty Boop.mp3        |
+| The Weekend - Save Your Tears.mp3    |
+| Twenty One Pliots — Ride.mp3         |
++--------------------------------------+
 ```
 
-Control the audio with keys:
+Play with the music:
 ```
-+-Lunar--------------------------------+
-|Playing Charlie Puth                  |
++-Playing------------------------------+
+|Twenty One Pliots - Ride              |
 +--------------------------------------+
 
-+-Audio Controls-----------------------+
++--------------------------------------+
 |Pause / Play: [ENTER]                 |
 |Volume: [↓ ↑]                         |
 |Speed:  [← →]                         |
