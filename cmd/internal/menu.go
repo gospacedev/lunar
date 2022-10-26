@@ -46,7 +46,7 @@ func Menu() {
 	l := widgets.NewList()
 	l.Title = "Music List"
 	l.Rows = files
-	l.TextStyle = ui.NewStyle(ui.ColorYellow)
+	l.SelectedRowStyle = ui.NewStyle(ui.ColorYellow)
 	l.WrapText = false
 	l.SetRect(0, 0, 40, len(files)+2)
 	l.BorderStyle.Fg = ui.ColorCyan
