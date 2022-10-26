@@ -83,7 +83,7 @@ Quit Lunar: [Q]
 		select {
 		case e := <-uiEvents:
 			switch e.ID {
-				case "<Enter>": // puase audio
+				case "<Enter>": // pause audio
 					ctrl.Paused = !ctrl.Paused
 				case "<Up>": // increase volume
 					volume.Volume += 0.2
@@ -95,9 +95,10 @@ Quit Lunar: [Q]
 					speedy.SetRatio(speedy.Ratio() - 0.1)
 				case "n": // Normalize speed
 					speedy.SetRatio(1)
-				case "<Backspace>": // go back to menu
-					Start()
-				case "q": // Exit Lunar
+				case "<C-<Backspace>>": // go back to menu
+					ctrl.Paused = !ctrl.Paused
+				    Start()
+				case "q": // quit Lunar
 					return
 			}
 		case <-ticker:
@@ -105,7 +106,7 @@ Quit Lunar: [Q]
 		}
 
 
-		//maximum and minimum volume and speed
+		//set maximum and minimum volume and speed
 		switch {
 		case volume.Volume >= 2:
 			volume.Volume = 2
