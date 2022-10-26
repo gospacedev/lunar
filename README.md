@@ -44,3 +44,7 @@ Control the audio with keys:
 |Quit Lunar: [ESC]                     |
 +--------------------------------------+
 ```
+
+## Todo
+
+Build a common UI for start and music player 
