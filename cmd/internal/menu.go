@@ -15,14 +15,20 @@ import (
 func Menu() {
 	vp := viper.New()
 
-	vp.SetConfigName("config")
-	vp.SetConfigType("json")
-	vp.AddConfigPath(".")
-
-	// Reading config file
-	err := vp.ReadInConfig()
+	// get user's home directory
+	home, err := os.UserHomeDir()
 	if err != nil {
 		fmt.Println(err)
+	}
+
+	vp.SetConfigName("config")
+	vp.SetConfigType("json")
+	vp.AddConfigPath(home)
+
+	// Reading config file
+	err1 := vp.ReadInConfig()
+	if err1 != nil {
+		fmt.Println("Error: Cannot read config file")
 	}
 
 	filepath, err := os.ReadDir(vp.GetString("path"))

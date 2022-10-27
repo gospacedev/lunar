@@ -11,8 +11,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var argsString string
-
 var newpathCmd = &cobra.Command{
 	Use:   "newpath",
 	Short: "Create newpath filepath",
@@ -22,7 +20,6 @@ var newpathCmd = &cobra.Command{
 		argsString := strings.Join(args, "")
 
 		in.NewFilePath(argsString)
-		in.Menu()
 	},
 }
 
