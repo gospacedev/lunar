@@ -3,15 +3,13 @@
 Lunar is a music player for terminal enthusiasts.
 
 ## Build
-
-Install Lunar
-
+Install Lunar by runing this command:
 ```
 go install github.com\gospacedev\lunar
 ```
 
 ## Usage
-Change filepath:
+Change the filepath to where your music is stored:
 
 ```powershell
 lunar newpath "C:\Users\grant\Music"
@@ -22,6 +20,7 @@ Run Lunar to explore music:
 
 ```powershell
 lunar
+
 +-Music List---------------------------+
 | Charlie Puth - Betty Boop.mp3        |
 | The Weekend - Save Your Tears.mp3    |
