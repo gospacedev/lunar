@@ -46,7 +46,7 @@ func AudioPlayer(file string, name string) {
 	speaker.Play(speedy)
 
 	// Print audio file name and key controls
-	selectedAudio := strings.Replace(name, ".mp3", "", 1) 
+	selectedAudio := strings.Replace(name, ".mp3", "", 1)
 
 	p := widgets.NewParagraph()
 	p.Title = "Playing"
@@ -54,7 +54,6 @@ func AudioPlayer(file string, name string) {
 	p.SetRect(0, 0, 40, 3)
 	p.BorderStyle.Fg = ui.ColorCyan
 
-	// print audio controls
 	c := widgets.NewParagraph()
 	c.Text = `Pause / Play: [ENTER]
 Volume: [↓ ↑]
@@ -81,30 +80,29 @@ Quit Lunar: [Q]
 		select {
 		case e := <-uiEvents:
 			switch e.ID {
-				case "<Enter>": // pause audio
-					ctrl.Paused = !ctrl.Paused
-				case "<Up>": // increase volume
-					volume.Volume += 0.2
-				case "<Down>": // decrease volume
-					volume.Volume -= 0.2
-				case "<Right>": // increase speed by x1.1
-					speedy.SetRatio(speedy.Ratio() + 0.1)
-				case "<Left>": // decrease speed by x1.1
-					speedy.SetRatio(speedy.Ratio() - 0.1)
-				case "n": // Normalize speed
-					speedy.SetRatio(1)
-				case "<C-<Backspace>>": // go back to menu
-					ctrl.Paused = !ctrl.Paused
-				    Menu()
-				case "q": // quit Lunar
-					return
+			case "<Enter>": // pause audio
+				ctrl.Paused = !ctrl.Paused
+			case "<Up>": // increase volume
+				volume.Volume += 0.2
+			case "<Down>": // decrease volume
+				volume.Volume -= 0.2
+			case "<Right>": // increase speed by x1.1
+				speedy.SetRatio(speedy.Ratio() + 0.1)
+			case "<Left>": // decrease speed by x1.1
+				speedy.SetRatio(speedy.Ratio() - 0.1)
+			case "n": // Normalize speed
+				speedy.SetRatio(1)
+			case "<C-<Backspace>>": // go back to menu
+				ctrl.Paused = !ctrl.Paused
+				Menu()
+			case "q": // quit Lunar
+				return
 			}
 		case <-ticker:
 			draw()
 		}
 
-
-		//set maximum and minimum volume and speed
+		//set max and min volume and speed
 		switch {
 		case volume.Volume >= 2:
 			volume.Volume = 2

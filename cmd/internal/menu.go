@@ -58,31 +58,31 @@ func Menu() {
 
 	for {
 		e := <-uiEvents
-	switch e.ID {
-	case "q", "<C-c>":
-		return
-	case "j", "<Down>":
-		l.ScrollDown()
-	case "k", "<Up>":
-		l.ScrollUp()
-	case "<C-d>":
-		l.ScrollHalfPageDown()
-	case "<C-u>":
-		l.ScrollHalfPageUp()
-	case "<C-f>":
-		l.ScrollPageDown()
-	case "<C-b>":
-		l.ScrollPageUp()
-	case "g":
-		if previousKey == "g" {
-			l.ScrollTop()
+		switch e.ID {
+		case "q", "<C-c>":
+			return
+		case "j", "<Down>":
+			l.ScrollDown()
+		case "k", "<Up>":
+			l.ScrollUp()
+		case "<C-d>":
+			l.ScrollHalfPageDown()
+		case "<C-u>":
+			l.ScrollHalfPageUp()
+		case "<C-f>":
+			l.ScrollPageDown()
+		case "<C-b>":
+			l.ScrollPageUp()
+		case "g":
+			if previousKey == "g" {
+				l.ScrollTop()
+			}
+		case "<Enter>":
+			selected := files[l.SelectedRow]
+
+			// Play selected music
+			AudioPlayer(vp.GetString("path")+"/"+selected, selected)
 		}
-	case "<Enter>":
-		selected := files[l.SelectedRow]
-		
-		// Play selected music
-		AudioPlayer(vp.GetString("path")+"/"+selected, selected)
-	}
-	ui.Render(l)
+		ui.Render(l)
 	}
 }

@@ -32,7 +32,7 @@ lunar
 Play with the music:
 ```
 +-Playing------------------------------+
-|Twenty One Pliots - Ride              |
+|Charlie Puth - Betty Boop             |
 +--------------------------------------+
 
 +--------------------------------------+
