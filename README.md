@@ -17,29 +17,11 @@ Filepath successfully added
 ```
 
 Run Lunar to explore music:
-
 ```powershell
 lunar
-
-+-Music List---------------------------+
-| Charlie Puth - Betty Boop.mp3        |
-| The Weekend - Save Your Tears.mp3    |
-| Twenty One Pliots — Ride.mp3         |
-+--------------------------------------+
 ```
+![Screenshot (173)](https://user-images.githubusercontent.com/83633399/198820433-29def33d-4c52-45ba-bef4-96dbadcb778e.png)
 
 Play with the music:
-```
-+-Playing------------------------------+
-|Charlie Puth - Betty Boop             |
-+--------------------------------------+
 
-+--------------------------------------+
-|Pause / Play: [ENTER]                 |
-|Volume: [↓ ↑]                         |
-|Speed:  [← →]                         |
-|Normal Speed: [N]                     |
-|Back to Menu: [BACKSPACE]             |
-|Quit Lunar: [Q]                       |
-+--------------------------------------+
-```
+![Screenshot (174)](https://user-images.githubusercontent.com/83633399/198820403-49aa1af1-8c1a-4fa4-883c-293d91ac4d79.png)
