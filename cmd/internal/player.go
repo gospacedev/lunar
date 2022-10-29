@@ -53,6 +53,21 @@ func AudioPlayer(file string, name string) {
 	p.Text = selectedAudio
 	p.SetRect(0, 0, 40, 3)
 	p.BorderStyle.Fg = ui.ColorCyan
+	p.TitleStyle.Fg = ui.ColorYellow
+
+	volGauge := widgets.NewGauge()
+	volGauge.Title = "Volume"
+	volGauge.Percent = 50
+	volGauge.SetRect(0, 3, 40, 6)
+	volGauge.BorderStyle.Fg = ui.ColorCyan
+	volGauge.TitleStyle.Fg = ui.ColorYellow
+
+	speedGauge := widgets.NewGauge()
+	speedGauge.Title = "Speed"
+	speedGauge.Percent = 50
+	speedGauge.SetRect(0, 6, 40, 9)
+	speedGauge.BorderStyle.Fg = ui.ColorCyan
+	speedGauge.TitleStyle.Fg = ui.ColorYellow
 
 	c := widgets.NewParagraph()
 	c.Text = `Pause / Play: [ENTER]
@@ -60,18 +75,15 @@ Volume: [↓ ↑]
 Speed:  [← →]
 Normal Speed: [N]
 Back to Menu: [Backspace]
-Quit Lunar: [Q]
 	`
-
-	c.SetRect(0, 4, 40, 12)
-	c.TitleStyle.Fg = ui.ColorYellow
+	c.SetRect(0, 9, 40, 16)
 	c.BorderStyle.Fg = ui.ColorCyan
 
 	uiEvents := ui.PollEvents()
 	ticker := time.NewTicker(time.Second).C
 
 	draw := func() {
-		ui.Render(p, c)
+		ui.Render(p, c, volGauge, speedGauge)
 	}
 
 	// Detect keys
@@ -83,20 +95,23 @@ Quit Lunar: [Q]
 			case "<Enter>": // pause audio
 				ctrl.Paused = !ctrl.Paused
 			case "<Up>": // increase volume
-				volume.Volume += 0.2
+				volume.Volume += 0.1
+				volGauge.Percent += 2
 			case "<Down>": // decrease volume
-				volume.Volume -= 0.2
+				volume.Volume -= 0.1
+				volGauge.Percent -= 2
 			case "<Right>": // increase speed by x1.1
 				speedy.SetRatio(speedy.Ratio() + 0.1)
+				speedGauge.Percent += 2
 			case "<Left>": // decrease speed by x1.1
 				speedy.SetRatio(speedy.Ratio() - 0.1)
+				speedGauge.Percent -= 2
 			case "n": // Normalize speed
 				speedy.SetRatio(1)
+				speedGauge.Percent = 50
 			case "<C-<Backspace>>": // go back to menu
 				ctrl.Paused = !ctrl.Paused
 				Menu()
-			case "q": // quit Lunar
-				return
 			}
 		case <-ticker:
 			draw()
@@ -106,12 +121,16 @@ Quit Lunar: [Q]
 		switch {
 		case volume.Volume >= 2:
 			volume.Volume = 2
+			volGauge.Percent = 100
 		case volume.Volume <= -2:
 			volume.Volume = -2
+			volGauge.Percent = 0
 		case speedy.Ratio() >= 2:
 			speedy.SetRatio(2)
+			speedGauge.Percent = 100
 		case speedy.Ratio() <= 0.5:
 			speedy.SetRatio(0.5)
+			speedGauge.Percent = 0
 		}
 	}
 }
