@@ -2,11 +2,13 @@
 
 Lunar is a music player for terminal enthusiasts.
 
-## Build
-Install Lunar by runing this command:
+## Install
+To build from the source make sure to have [Go](https://go.dev/) installed, then install by runing this command:
 ```
 go install github.com\gospacedev\lunar
 ```
+
+Alternatively, you can download the binary from the [release](https://github.com/gospacedev/lunar/releases) page.
 
 ## Usage
 Change the filepath to where your music is stored:
