@@ -1,5 +1,7 @@
 # Contributing to Lunar
 
+Thanks for contibuting!
+
 ### Reporting Bugs
 
 If you find a bug create an issue about it.
