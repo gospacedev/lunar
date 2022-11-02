@@ -1,8 +1,6 @@
-# Lunar, music for the moon!
-
 Lunar is a music player for terminal enthusiasts!
 
-## Install
+### Install
 To build from the source make sure to have [Go](https://go.dev/) installed, then install by runing this command:
 ```
 go install github.com\gospacedev\lunar
@@ -10,7 +8,7 @@ go install github.com\gospacedev\lunar
 
 Alternatively, you can download the binary from the [release](https://github.com/gospacedev/lunar/releases) page and make sure to add it to your `PATH`.
 
-## Usage
+### Usage
 Change the filepath to where your music is stored:
 
 ```powershell
@@ -28,6 +26,6 @@ Play with the music:
 
 ![Screenshot (174)](https://user-images.githubusercontent.com/83633399/198820403-49aa1af1-8c1a-4fa4-883c-293d91ac4d79.png)
 
-## Contributing
+### Contributing
 
-Refer to [CONTRIBUTING](https://github.com/gospacedev/lunar/blob/master/CONTRIBUTING.md) about contributing to the project.
+Go to [Github](https://github.com/gospacedev/lunar) to report bugs and request new features.
