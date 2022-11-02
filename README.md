@@ -30,4 +30,4 @@ Play with the music:
 
 ## Contributing
 
-Refer to [CONTRIBUTING](https://github.com/gospacedev/lunar/blob/master/CONTRIBUTING.md) about contributing to the project.
+Refer to [CONTRIBUTING](https://github.com/gospacedev/lunar/blob/master/CONTRIBUTING.md) about contributing to Lunar.
