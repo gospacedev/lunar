@@ -1,9 +1,15 @@
 # Contributing to Lunar
 
+Thanks for contibuting!
+
 ### Reporting Bugs
 
-Create an issue about the bug you found.
+If you find a bug create an issue about it.
 
 ### Suggesting Enhancements
 
-Create an issue or a pull request including completely new features and minor improvements to existing functionality.
+Have an idea, create an issue or a pull request about completely new features and minor improvements to existing functionality.
+
+### Share
+
+Sharing the project also helps out!
