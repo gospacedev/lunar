@@ -27,3 +27,7 @@ lunar
 Play with the music:
 
 ![Screenshot (174)](https://user-images.githubusercontent.com/83633399/198820403-49aa1af1-8c1a-4fa4-883c-293d91ac4d79.png)
+
+## Contributing
+
+Refer to [CONTRIBUTING](https://github.com/gospacedev/lunar/blob/master/CONTRIBUTING.md) about contributing to the project.
