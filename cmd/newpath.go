@@ -6,7 +6,7 @@ package cmd
 import (
 	"strings"
 
-	in "github.com/gospacedev/lunar/cmd/internal"
+	"github.com/gospacedev/lunar/internal"
 
 	"github.com/spf13/cobra"
 )
@@ -19,7 +19,7 @@ var newpathCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		argsString := strings.Join(args, "")
 
-		in.NewFilePath(argsString)
+		internal.NewFilePath(argsString)
 	},
 }
 

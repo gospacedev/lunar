@@ -6,7 +6,7 @@ package cmd
 import (
 	"os"
 
-	in "github.com/gospacedev/lunar/cmd/internal"
+	"github.com/gospacedev/lunar/internal"
 
 	"github.com/spf13/cobra"
 )
@@ -17,7 +17,7 @@ var rootCmd = &cobra.Command{
 	Short: "Lunar is a CLI Music Player",
 	Long:  `Lunar is a CLI Music Player for terminal enthusiasts`,
 	Run: func(cmd *cobra.Command, args []string) {
-		in.Menu()
+		internal.Menu()
 	},
 }
 
