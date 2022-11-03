@@ -8,12 +8,32 @@ import (
 
 	"github.com/faiface/beep"
 	"github.com/faiface/beep/effects"
+	"github.com/faiface/beep/flac"
 	"github.com/faiface/beep/mp3"
 	"github.com/faiface/beep/speaker"
+	"github.com/faiface/beep/vorbis"
+	"github.com/faiface/beep/wav"
 
 	ui "github.com/gizak/termui/v3"
 	"github.com/gizak/termui/v3/widgets"
 )
+
+// GenrericDecoder detects different file types then decodes it
+func GenrericDecoder(name string, f *os.File) (beep.StreamSeekCloser, beep.Format, error) {
+	switch {
+		case strings.HasSuffix(name, ".mp3"):
+			return mp3.Decode(f)
+		case strings.HasSuffix(name, ".wav"):
+			return wav.Decode(f)
+		case strings.HasSuffix(name, ".flac"):
+			return flac.Decode(f)
+		case strings.HasSuffix(name, ".ogg"):
+			return vorbis.Decode(f)
+	}
+
+	// the deafault decoder is mp3
+	return mp3.Decode(f)
+}
 
 // Plays mp3 file
 func AudioPlayer(file string, name string) {
@@ -27,7 +47,7 @@ func AudioPlayer(file string, name string) {
 		log.Fatal(err)
 	}
 
-	streamer, format, err := mp3.Decode(f)
+	streamer, format, err := GenrericDecoder(name, f)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -45,12 +65,9 @@ func AudioPlayer(file string, name string) {
 	speedy := beep.ResampleRatio(4, 1, volume)
 	speaker.Play(speedy)
 
-	// Print audio file name and key controls
-	selectedAudio := strings.Replace(name, ".mp3", "", 1)
-
 	p := widgets.NewParagraph()
 	p.Title = "Playing"
-	p.Text = selectedAudio
+	p.Text = name
 	p.SetRect(0, 0, 40, 3)
 	p.BorderStyle.Fg = ui.ColorCyan
 	p.TitleStyle.Fg = ui.ColorYellow

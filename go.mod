@@ -16,9 +16,14 @@ require (
 	github.com/hajimehoshi/go-mp3 v0.3.0 // indirect
 	github.com/hajimehoshi/oto v0.7.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/icza/bitio v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
+	github.com/jfreymuth/oggvorbis v1.0.1 // indirect
+	github.com/jfreymuth/vorbis v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
+	github.com/mewkiz/flac v1.0.7 // indirect
+	github.com/mewkiz/pkg v0.0.0-20190919212034-518ade7978e2 // indirect
 	github.com/mitchellh/go-wordwrap v0.0.0-20150314170334-ad45545899c7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/nsf/termbox-go v1.1.1 // indirect
