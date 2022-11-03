@@ -22,8 +22,8 @@ Run Lunar to explore music:
 ```powershell
 lunar
 ```
-![Screenshot (173)](https://user-images.githubusercontent.com/83633399/198820433-29def33d-4c52-45ba-bef4-96dbadcb778e.png)
+![Screenshot (178)](https://user-images.githubusercontent.com/83633399/199718943-d31280b1-2bc3-4ae6-a468-a047a0b73dd6.png)
 
 Play with the music:
 
-![Screenshot (174)](https://user-images.githubusercontent.com/83633399/198820403-49aa1af1-8c1a-4fa4-883c-293d91ac4d79.png)
+![Screenshot (179)](https://user-images.githubusercontent.com/83633399/199719026-1b55b92c-8df3-49f6-ba83-d34dff4bc16e.png)
