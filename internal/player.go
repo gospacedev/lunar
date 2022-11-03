@@ -18,7 +18,7 @@ import (
 	"github.com/gizak/termui/v3/widgets"
 )
 
-// GenrericDecoder detects different file types then decodes it
+// GenrericDecoder detects different audio formats then decodes it
 func GenrericDecoder(name string, f *os.File) (beep.StreamSeekCloser, beep.Format, error) {
 	switch {
 		case strings.HasSuffix(name, ".mp3"):
