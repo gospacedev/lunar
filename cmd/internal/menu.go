@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/spf13/viper"
 
@@ -92,4 +93,22 @@ func Menu() {
 		}
 		ui.Render(l)
 	}
+}
+
+// Returns true if filename is a supported format
+func isAudioFile(filename string) bool {
+	// convert filename to lowercase to include uppercase extensions (i.e. "filename.MP3")
+	filename = strings.ToLower(filename)
+
+	// the audio playback package supports the formats below, but lunar currently only supports mp3.
+	// replace the last line in this function with the following 6 lines to include all formats.
+
+	// for _, ext := range []string{".wav", ".mp3", ".ogg", ".flac"} {
+	// 	if strings.HasSuffix(filename, ext) {
+	// 		return true
+	// 	}
+	// }
+	// return false
+
+	return strings.HasSuffix(filename, ".mp3")
 }
