@@ -2,6 +2,8 @@
 
 Lunar is a music player for terminal enthusiasts.
 
+Lunar supports `WAV`, `MP3`, `OGG`, and `FLAC` audio formats.
+
 ## Install
 To build from the source make sure to have [Go](https://go.dev/) installed, then install by runing this command:
 ```
@@ -17,7 +19,6 @@ Change the filepath to where your music is stored:
 lunar newpath "C:\Users\grant\Music"
 Filepath successfully added
 ```
-Lunar supports `WAV`, `MP3`, `OGG`, and `FLAC` audio formats.
 
 Run Lunar to explore music:
 ```powershell
