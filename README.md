@@ -1,7 +1,5 @@
 # Lunar
 
-> The music player for the terminal
-
 Lunar is a fast, lightweight, and interactive music player for terminal enthusiasts.
 
 ## Features
