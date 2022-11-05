@@ -1,6 +1,8 @@
 # Lunar
 
-The music player for terminal enthusiasts.
+> The music player for the terminal
+
+Lunar is a lightweight and interactive music player for terminal enthusiasts.
 
 ## Features
 - Lunar supports `WAV`, `MP3`, `OGG`, and `FLAC` audio formats.
