@@ -1,8 +1,11 @@
 # Lunar
 
-Lunar is a music player for terminal enthusiasts.
+The music player for terminal enthusiasts.
 
-Lunar supports `WAV`, `MP3`, `OGG`, and `FLAC` audio formats.
+## Features
+- Lunar supports `WAV`, `MP3`, `OGG`, and `FLAC` audio formats.
+
+- Audio can be looped, pause/resume, change volume, sequence, change playback speed.
 
 ## Install
 To build from the source make sure to have [Go](https://go.dev/) installed, then install by runing this command:
