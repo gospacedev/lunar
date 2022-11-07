@@ -42,9 +42,6 @@ func Menu() {
 
 	// Get file names in folder
 	for _, f := range filepath {
-		// Only include supported audio formats/extensions (currently only .mp3).
-		// Note that this has a side-effect of also filtering out directories, which need to be
-		// handled separately and navigated to instead of.. well.. crashing the application  =P
 		if isAudioFile(f.Name()) {
 			files = append(files, f.Name())
 		}
