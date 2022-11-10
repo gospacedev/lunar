@@ -53,7 +53,7 @@ func Menu() {
 	defer ui.Close()
 
 	l := widgets.NewList()
-	l.Title = "Music List"
+	l.Title = "Music Menu"
 	l.Rows = items
 	l.SelectedRowStyle = ui.NewStyle(ui.ColorYellow)
 	l.WrapText = false
@@ -63,34 +63,19 @@ func Menu() {
 
 	ui.Render(l)
 
-	previousKey := ""
 	uiEvents := ui.PollEvents()
 
 	for {
 		e := <-uiEvents
 		switch e.ID {
-		case "q", "<C-c>":
+		case "q":
 			return
-		case "j", "<Down>":
+		case "<Down>":
 			l.ScrollDown()
-		case "k", "<Up>":
+		case "<Up>":
 			l.ScrollUp()
-		case "<C-d>":
-			l.ScrollHalfPageDown()
-		case "<C-u>":
-			l.ScrollHalfPageUp()
-		case "<C-f>":
-			l.ScrollPageDown()
-		case "<C-b>":
-			l.ScrollPageUp()
-		case "g":
-			if previousKey == "g" {
-				l.ScrollTop()
-			}
-		case "<Enter>":
+		case "<Enter>": // Play selected file
 			selected := items[l.SelectedRow]
-
-			// Play selected music
 			AudioPlayer(vp.GetString("path")+"/"+selected, selected)
 		}
 		ui.Render(l)
