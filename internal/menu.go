@@ -32,18 +32,18 @@ func Menu() {
 		fmt.Println("Error: Cannot read config file")
 	}
 
-	filepath, err := os.ReadDir(vp.GetString("path"))
+	path, err := os.ReadDir(vp.GetString("path"))
 	if err != nil {
 		fmt.Println("No filepath detected, to add new filepath run: lunar newpath")
 		os.Exit(1)
 	}
 
-	var files []string
+	var items []string
 
 	// Get file names in folder
-	for _, f := range filepath {
+	for _, f := range path {
 		if isAudioFile(f.Name()) {
-			files = append(files, f.Name())
+			items = append(items, f.Name())
 		}
 	}
 
@@ -54,10 +54,10 @@ func Menu() {
 
 	l := widgets.NewList()
 	l.Title = "Music List"
-	l.Rows = files
+	l.Rows = items
 	l.SelectedRowStyle = ui.NewStyle(ui.ColorYellow)
 	l.WrapText = false
-	l.SetRect(0, 0, 40, len(files)+2)
+	l.SetRect(0, 0, 40, len(items)+2)
 	l.BorderStyle.Fg = ui.ColorCyan
 	l.TitleStyle.Fg = ui.ColorYellow
 
@@ -88,7 +88,7 @@ func Menu() {
 				l.ScrollTop()
 			}
 		case "<Enter>":
-			selected := files[l.SelectedRow]
+			selected := items[l.SelectedRow]
 
 			// Play selected music
 			AudioPlayer(vp.GetString("path")+"/"+selected, selected)
