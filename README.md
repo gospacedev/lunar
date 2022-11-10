@@ -1,5 +1,8 @@
 # Lunar
 
+[![Go](https://github.com/gospacedev/lunar/actions/workflows/go.yml/badge.svg)](https://github.com/gospacedev/lunar/actions/workflows/go.yml)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 Lunar is a groovy music player for terminal enthusiasts.
 
 ## Features
