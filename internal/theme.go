@@ -24,8 +24,8 @@ import (
 )
 
 var (
-	TitleTheme ui.Color
-	BorderTheme ui.Color
+	TitleTheme       ui.Color
+	BorderTheme      ui.Color
 	SelectedRowTheme ui.Color
 )
 

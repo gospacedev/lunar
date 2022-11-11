@@ -22,11 +22,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// themeCmd represents the theme command
 var themeCmd = &cobra.Command{
 	Use:   "theme",
 	Short: "Change theme",
-	Long: `Change how Lunar look with the multiple themes`,
+	Long:  `Change how Lunar look with the multiple themes`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		argsString := strings.Join(args, "")
