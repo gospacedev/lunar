@@ -8,6 +8,8 @@ Lunar is a groovy music player for terminal enthusiasts.
 ## Features
 - Lunar supports `WAV`, `MP3`, `OGG`, and `FLAC` audio formats.
 
+- Change how Lunar looks with the different built-in color themes.
+
 - Audio can be looped, pause/resume, change volume, and playback speed.
 
 ## Install
