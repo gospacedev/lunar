@@ -1,3 +1,18 @@
+/*
+Copyright © 2022 Grantley Cullar <grantcullar@gmail.com>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package internal
 
 import (
@@ -38,6 +53,17 @@ func Menu() {
 		os.Exit(1)
 	}
 
+	// get widget theme
+	TitleThemeColor := vp.GetInt("titlethemecolor")
+	BorderThemeColor := vp.GetInt("borderthemecolor")
+	SelectedRowThemeColor := vp.GetInt("SelectedRowThemeColor")
+
+	if TitleThemeColor == 0 || BorderThemeColor == 0 {
+		TitleThemeColor = 3
+		BorderThemeColor = 6
+		SelectedRowThemeColor = 3
+	}
+
 	var items []string
 
 	// Get file names in folder
@@ -55,11 +81,11 @@ func Menu() {
 	l := widgets.NewList()
 	l.Title = "Music Menu"
 	l.Rows = items
-	l.SelectedRowStyle = ui.NewStyle(SelectedRowTheme)
+	l.SelectedRowStyle = ui.NewStyle(ui.Color(SelectedRowThemeColor))
 	l.WrapText = false
 	l.SetRect(0, 0, 40, len(items)+2)
-	l.BorderStyle.Fg = BorderTheme
-	l.TitleStyle.Fg = TitleTheme
+	l.TitleStyle.Fg = ui.Color(TitleThemeColor)
+	l.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	ui.Render(l)
 

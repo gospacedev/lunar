@@ -1,6 +1,22 @@
+/*
+Copyright © 2022 Grantley Cullar <grantcullar@gmail.com>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package internal
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -13,6 +29,7 @@ import (
 	"github.com/faiface/beep/speaker"
 	"github.com/faiface/beep/vorbis"
 	"github.com/faiface/beep/wav"
+	"github.com/spf13/viper"
 
 	ui "github.com/gizak/termui/v3"
 	"github.com/gizak/termui/v3/widgets"
@@ -65,26 +82,53 @@ func AudioPlayer(file string, name string) {
 	speedy := beep.ResampleRatio(4, 1, volume)
 	speaker.Play(speedy)
 
+	vp := viper.New()
+
+	// get user's home directory
+	home, err := os.UserHomeDir()
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	vp.SetConfigName("config")
+	vp.SetConfigType("json")
+	vp.AddConfigPath(home)
+
+	// Reading config file
+	err1 := vp.ReadInConfig()
+	if err1 != nil {
+		fmt.Println("Error: Cannot read config file")
+	}
+
+	// get widget theme
+	TitleThemeColor := vp.GetInt("titlethemecolor")
+	BorderThemeColor := vp.GetInt("borderthemecolor")
+
+	if TitleThemeColor == 0 || BorderThemeColor == 0 {
+		TitleThemeColor = 3
+		BorderThemeColor = 6
+	}
+
 	p := widgets.NewParagraph()
 	p.Title = "Playing"
 	p.Text = name
 	p.SetRect(0, 0, 40, 3)
-	p.BorderStyle.Fg = BorderTheme
-	p.TitleStyle.Fg = TitleTheme
+	p.TitleStyle.Fg = ui.Color(TitleThemeColor)
+	p.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	volGauge := widgets.NewGauge()
 	volGauge.Title = "Volume"
 	volGauge.Percent = 50
 	volGauge.SetRect(0, 3, 40, 6)
-	volGauge.BorderStyle.Fg = BorderTheme
-	volGauge.TitleStyle.Fg = TitleTheme
+	volGauge.TitleStyle.Fg = ui.Color(TitleThemeColor)
+	volGauge.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	speedGauge := widgets.NewGauge()
 	speedGauge.Title = "Speed"
 	speedGauge.Percent = 50
 	speedGauge.SetRect(0, 6, 40, 9)
-	speedGauge.BorderStyle.Fg = BorderTheme
-	speedGauge.TitleStyle.Fg = TitleTheme
+	speedGauge.TitleStyle.Fg = ui.Color(TitleThemeColor)
+	speedGauge.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	c := widgets.NewParagraph()
 	c.Text = `Pause / Play: [ENTER]
@@ -94,7 +138,7 @@ Normal Speed: [N]
 Back to Menu: [Backspace]
 	`
 	c.SetRect(0, 9, 40, 16)
-	c.BorderStyle.Fg = BorderTheme
+	c.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	uiEvents := ui.PollEvents()
 	ticker := time.NewTicker(time.Second).C

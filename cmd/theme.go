@@ -19,22 +19,22 @@ import (
 	"strings"
 
 	"github.com/gospacedev/lunar/internal"
-
 	"github.com/spf13/cobra"
 )
 
-var newpathCmd = &cobra.Command{
-	Use:   "newpath",
-	Short: "Create a new filepath",
-	Long:  `Configure Lunar to the filepath that contains the mp3 files`,
+// themeCmd represents the theme command
+var themeCmd = &cobra.Command{
+	Use:   "theme",
+	Short: "Change theme",
+	Long: `Change how Lunar look with the multiple themes`,
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		argsString := strings.Join(args, "")
 
-		internal.NewFilepath(argsString)
+		internal.ChangeTheme(argsString)
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(newpathCmd)
+	rootCmd.AddCommand(themeCmd)
 }
