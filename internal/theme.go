@@ -43,6 +43,10 @@ func ChangeTheme(theme string) {
 		TitleTheme = 5
 		BorderTheme = 6
 		SelectedRowTheme = 5
+	case "cloud":
+		TitleTheme = 7
+		BorderTheme = 7
+		SelectedRowTheme = 6
 	}
 
 	vp := viper.New()
