@@ -27,8 +27,29 @@ import (
 	"github.com/gizak/termui/v3/widgets"
 )
 
-// The menu where the user can choose what audio file to play
+// Returns true if filename is a supported format
+func isAudioFile(filename string) bool {
+	// convert filename to lowercase to include uppercase extensions (i.e. "filename.MP3")
+	filename = strings.ToLower(filename)
+
+	for _, ext := range []string{".wav", ".mp3", ".ogg", ".flac"} {
+		if strings.HasSuffix(filename, ext) {
+			return true
+		}
+	}
+	return false
+}
+
+func DynamicHeight(items []string) int {
+	if len(items) >= 10 {
+		return 12
+	}
+	return len(items)+2
+}
+
+// Menu list all the audio files from the path set from newpath
 func Menu() {
+	// init viper
 	vp := viper.New()
 
 	// get user's home directory
@@ -37,6 +58,7 @@ func Menu() {
 		fmt.Println(err)
 	}
 
+	// set target config file
 	vp.SetConfigName("config")
 	vp.SetConfigType("json")
 	vp.AddConfigPath(home)
@@ -47,6 +69,7 @@ func Menu() {
 		fmt.Println("Error: Cannot read config file")
 	}
 
+	// Read
 	path, err := os.ReadDir(vp.GetString("path"))
 	if err != nil {
 		fmt.Println("No filepath detected, to add new filepath run: lunar newpath")
@@ -83,7 +106,7 @@ func Menu() {
 	l.Rows = items
 	l.SelectedRowStyle = ui.NewStyle(ui.Color(SelectedRowThemeColor))
 	l.WrapText = false
-	l.SetRect(0, 0, 40, len(items)+2)
+	l.SetRect(0, 0, 40, DynamicHeight(items))
 	l.TitleStyle.Fg = ui.Color(TitleThemeColor)
 	l.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
@@ -106,17 +129,4 @@ func Menu() {
 		}
 		ui.Render(l)
 	}
-}
-
-// Returns true if filename is a supported format
-func isAudioFile(filename string) bool {
-	// convert filename to lowercase to include uppercase extensions (i.e. "filename.MP3")
-	filename = strings.ToLower(filename)
-
-	for _, ext := range []string{".wav", ".mp3", ".ogg", ".flac"} {
-		if strings.HasSuffix(filename, ext) {
-			return true
-		}
-	}
-	return false
 }
