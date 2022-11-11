@@ -21,14 +21,14 @@ import (
 // GenrericDecoder detects different audio formats then decodes it
 func GenrericDecoder(name string, f *os.File) (beep.StreamSeekCloser, beep.Format, error) {
 	switch {
-		case strings.HasSuffix(name, ".mp3"):
-			return mp3.Decode(f)
-		case strings.HasSuffix(name, ".wav"):
-			return wav.Decode(f)
-		case strings.HasSuffix(name, ".flac"):
-			return flac.Decode(f)
-		case strings.HasSuffix(name, ".ogg"):
-			return vorbis.Decode(f)
+	case strings.HasSuffix(name, ".mp3"):
+		return mp3.Decode(f)
+	case strings.HasSuffix(name, ".wav"):
+		return wav.Decode(f)
+	case strings.HasSuffix(name, ".flac"):
+		return flac.Decode(f)
+	case strings.HasSuffix(name, ".ogg"):
+		return vorbis.Decode(f)
 	}
 
 	// the deafault decoder is mp3

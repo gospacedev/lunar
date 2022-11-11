@@ -9,7 +9,7 @@ import (
 )
 
 // Create new json file that stores filepath
-func NewFilePath(newPath string) {
+func NewFilepath(newPath string) {
 	vp := viper.New()
 
 	// get user's home directory
@@ -20,10 +20,10 @@ func NewFilePath(newPath string) {
 
 	// stub init
 	configHome := home
-    configName := "config"
+	configName := "config"
 	configType := "json"
 	configPath := filepath.Join(configHome, configName+"."+configType)
-// ----
+	// ----
 
 	vp.AddConfigPath(configHome)
 	vp.SetConfigName(configName)
@@ -32,7 +32,7 @@ func NewFilePath(newPath string) {
 	_, err2 := os.Stat(configPath)
 	if !os.IsExist(err2) {
 		if _, err2 := os.Create(configPath); err2 != nil {
-			fmt.Print()// ignore error
+			fmt.Print() // ignore error
 		}
 	}
 
