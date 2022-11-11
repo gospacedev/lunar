@@ -1,11 +1,11 @@
 package internal
 
 import (
-	"github.com/gizak/termui/v3"
+	ui "github.com/gizak/termui/v3"
 )
 
-type WidgetTheme struct {
-	TitleTheme  termui.Color
-	BorderTheme termui.Color
-}
-
+var (
+	TitleTheme ui.Color = 3
+	BorderTheme ui.Color = 4
+	SelectedRowTheme ui.Color = 3
+)

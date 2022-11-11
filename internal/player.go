@@ -69,22 +69,22 @@ func AudioPlayer(file string, name string) {
 	p.Title = "Playing"
 	p.Text = name
 	p.SetRect(0, 0, 40, 3)
-	p.BorderStyle.Fg = ui.ColorCyan
-	p.TitleStyle.Fg = ui.ColorYellow
+	p.BorderStyle.Fg = BorderTheme
+	p.TitleStyle.Fg = TitleTheme
 
 	volGauge := widgets.NewGauge()
 	volGauge.Title = "Volume"
 	volGauge.Percent = 50
 	volGauge.SetRect(0, 3, 40, 6)
-	volGauge.BorderStyle.Fg = ui.ColorCyan
-	volGauge.TitleStyle.Fg = ui.ColorYellow
+	volGauge.BorderStyle.Fg = BorderTheme
+	volGauge.TitleStyle.Fg = TitleTheme
 
 	speedGauge := widgets.NewGauge()
 	speedGauge.Title = "Speed"
 	speedGauge.Percent = 50
 	speedGauge.SetRect(0, 6, 40, 9)
-	speedGauge.BorderStyle.Fg = ui.ColorCyan
-	speedGauge.TitleStyle.Fg = ui.ColorYellow
+	speedGauge.BorderStyle.Fg = BorderTheme
+	speedGauge.TitleStyle.Fg = TitleTheme
 
 	c := widgets.NewParagraph()
 	c.Text = `Pause / Play: [ENTER]
@@ -94,7 +94,7 @@ Normal Speed: [N]
 Back to Menu: [Backspace]
 	`
 	c.SetRect(0, 9, 40, 16)
-	c.BorderStyle.Fg = ui.ColorCyan
+	c.BorderStyle.Fg = BorderTheme
 
 	uiEvents := ui.PollEvents()
 	ticker := time.NewTicker(time.Second).C

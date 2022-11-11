@@ -55,11 +55,11 @@ func Menu() {
 	l := widgets.NewList()
 	l.Title = "Music Menu"
 	l.Rows = items
-	l.SelectedRowStyle = ui.NewStyle(ui.ColorYellow)
+	l.SelectedRowStyle = ui.NewStyle(SelectedRowTheme)
 	l.WrapText = false
 	l.SetRect(0, 0, 40, len(items)+2)
-	l.BorderStyle.Fg = ui.ColorCyan
-	l.TitleStyle.Fg = ui.ColorYellow
+	l.BorderStyle.Fg = BorderTheme
+	l.TitleStyle.Fg = TitleTheme
 
 	ui.Render(l)
 
