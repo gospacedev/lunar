@@ -23,22 +23,19 @@ import (
 	"github.com/spf13/viper"
 )
 
-// Create new json file that stores filepath
+// Get new filepath from user then store it in json config file
 func NewFilepath(newPath string) {
 	vp := viper.New()
 
-	// get user's home directory
 	home, err := os.UserHomeDir()
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	// stub init
 	configHome := home
 	configName := "config"
 	configType := "json"
 	configPath := filepath.Join(configHome, configName+"."+configType)
-	// ----
 
 	vp.AddConfigPath(configHome)
 	vp.SetConfigName(configName)
@@ -51,7 +48,6 @@ func NewFilepath(newPath string) {
 		}
 	}
 
-	// Reading config file
 	err1 := vp.ReadInConfig()
 	if err1 != nil {
 		fmt.Print()

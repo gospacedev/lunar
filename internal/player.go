@@ -52,7 +52,7 @@ func GenrericDecoder(name string, f *os.File) (beep.StreamSeekCloser, beep.Forma
 	return mp3.Decode(f)
 }
 
-// Plays mp3 file
+// Play and control an audio file
 func AudioPlayer(file string, name string) {
 	if err := ui.Init(); err != nil {
 		log.Fatalf("failed to initialize termui: %v", err)
@@ -84,7 +84,6 @@ func AudioPlayer(file string, name string) {
 
 	vp := viper.New()
 
-	// get user's home directory
 	home, err := os.UserHomeDir()
 	if err != nil {
 		fmt.Println(err)
@@ -94,13 +93,11 @@ func AudioPlayer(file string, name string) {
 	vp.SetConfigType("json")
 	vp.AddConfigPath(home)
 
-	// Reading config file
 	err1 := vp.ReadInConfig()
 	if err1 != nil {
 		fmt.Println("Error: Cannot read config file")
 	}
 
-	// get widget theme
 	TitleThemeColor := vp.GetInt("titlethemecolor")
 	BorderThemeColor := vp.GetInt("borderthemecolor")
 

@@ -29,7 +29,6 @@ import (
 
 // Returns true if filename is a supported format
 func isAudioFile(filename string) bool {
-	// convert filename to lowercase to include uppercase extensions (i.e. "filename.MP3")
 	filename = strings.ToLower(filename)
 
 	for _, ext := range []string{".wav", ".mp3", ".ogg", ".flac"} {
@@ -40,6 +39,7 @@ func isAudioFile(filename string) bool {
 	return false
 }
 
+// Increase the length of the list to fit all items until 10 items
 func DynamicHeight(items []string) int {
 	if len(items) >= 10 {
 		return 12
@@ -47,36 +47,30 @@ func DynamicHeight(items []string) int {
 	return len(items)+2
 }
 
-// Menu list all the audio files from the path set from newpath
+// Menu list all the audio files from the path set from newpath then play the selected file
 func Menu() {
-	// init viper
 	vp := viper.New()
 
-	// get user's home directory
 	home, err := os.UserHomeDir()
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	// set target config file
 	vp.SetConfigName("config")
 	vp.SetConfigType("json")
 	vp.AddConfigPath(home)
 
-	// Reading config file
 	err1 := vp.ReadInConfig()
 	if err1 != nil {
 		fmt.Println("Error: Cannot read config file")
 	}
 
-	// Read
 	path, err := os.ReadDir(vp.GetString("path"))
 	if err != nil {
 		fmt.Println("No filepath detected, to add new filepath run: lunar newpath")
 		os.Exit(1)
 	}
 
-	// get widget theme
 	TitleThemeColor := vp.GetInt("titlethemecolor")
 	BorderThemeColor := vp.GetInt("borderthemecolor")
 	SelectedRowThemeColor := vp.GetInt("SelectedRowThemeColor")
@@ -89,7 +83,6 @@ func Menu() {
 
 	var items []string
 
-	// Get file names in folder
 	for _, f := range path {
 		if isAudioFile(f.Name()) {
 			items = append(items, f.Name())
@@ -123,7 +116,7 @@ func Menu() {
 			l.ScrollDown()
 		case "<Up>":
 			l.ScrollUp()
-		case "<Enter>": // Play selected file
+		case "<Enter>":
 			selected := items[l.SelectedRow]
 			AudioPlayer(vp.GetString("path")+"/"+selected, selected)
 		}

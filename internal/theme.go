@@ -29,6 +29,7 @@ var (
 	SelectedRowTheme ui.Color
 )
 
+// ChangeTheme receive an argument and change the color theme
 func ChangeTheme(theme string) {
 	switch theme {
 	case "powershell":
@@ -51,7 +52,6 @@ func ChangeTheme(theme string) {
 
 	vp := viper.New()
 
-	// get user's home directory
 	home, err := os.UserHomeDir()
 	if err != nil {
 		fmt.Println(err)
@@ -61,7 +61,6 @@ func ChangeTheme(theme string) {
 	vp.SetConfigType("json")
 	vp.AddConfigPath(home)
 
-	// Reading config file
 	err1 := vp.ReadInConfig()
 	if err1 != nil {
 		fmt.Println("Error: Cannot read config file")
