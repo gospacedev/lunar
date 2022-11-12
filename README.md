@@ -24,7 +24,7 @@ Lunar is a groovy music player for terminal enthusiasts.
 
 To build from the source make sure to have [Go](https://go.dev/) installed, then install by runing this command:
 ```
-go install github.com\gospacedev\lunar
+go install github.com\gospacedev\lunar@latest
 ```
 
 Alternatively, you can download the binary from the [release](https://github.com/gospacedev/lunar/releases) page.
