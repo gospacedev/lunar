@@ -44,7 +44,7 @@ Run Lunar to explore music:
 lunar
 ```
 
-![Screenshot (194)](https://user-images.githubusercontent.com/83633399/201076449-8c84752e-e261-4634-9117-4f687792eaae.png)
+![Screenshot (224)](https://user-images.githubusercontent.com/83633399/201451181-cb210bbf-010b-4c54-bd64-ac2726109b06.png)
 
 Play with the music:
 
