@@ -9,8 +9,8 @@ lunar theme "christmas"
 
 | powershell | christmas |
 | :-: | :-: |
-| ![Screenshot (194)](https://user-images.githubusercontent.com/83633399/201309357-a47da787-e751-4aee-a0cf-cdf852f4e761.png) | ![Screenshot (195)](https://user-images.githubusercontent.com/83633399/201309590-0b76b353-dc52-460e-bae8-195e46303e3d.png) |
+| ![Screenshot (224)](https://user-images.githubusercontent.com/83633399/201451210-f4778655-44d4-4779-984e-452362fdb475.png) | ![Screenshot (225)](https://user-images.githubusercontent.com/83633399/201451218-924d1650-975d-4fa2-98a1-66fffe3be59a.png) |
 
 | neon | cloud |
 | :-: | :-: |
-| ![Screenshot (202)](https://user-images.githubusercontent.com/83633399/201309815-88ec74f9-4855-43c7-a611-dfb14ca95970.png) | ![Screenshot (218)](https://user-images.githubusercontent.com/83633399/201309983-d9af1ddb-1c6f-4484-a451-856c150fa21c.png) |
+| ![Screenshot (226)](https://user-images.githubusercontent.com/83633399/201451220-cdd1cb3b-da7d-4d57-81ae-4023edaacab1.png) | ![Screenshot (227)](https://user-images.githubusercontent.com/83633399/201451222-1f01e800-51ab-4943-a189-4bb6f47031d0.png) |
