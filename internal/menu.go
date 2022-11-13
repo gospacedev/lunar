@@ -44,7 +44,7 @@ func DynamicHeight(items []string) int {
 	if len(items) >= 10 {
 		return 12
 	}
-	return len(items)+2
+	return len(items) + 2
 }
 
 // Menu list all the audio files from the path set from newpath then play the selected file
@@ -99,7 +99,7 @@ func Menu() {
 	l.Rows = items
 	l.SelectedRowStyle = ui.NewStyle(ui.Color(SelectedRowThemeColor))
 	l.WrapText = false
-	l.SetRect(0, 0, 40, DynamicHeight(items))
+	l.SetRect(0, 0, 50, DynamicHeight(items))
 	l.TitleStyle.Fg = ui.Color(TitleThemeColor)
 	l.BorderStyle.Fg = ui.Color(BorderThemeColor)
 

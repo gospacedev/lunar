@@ -109,64 +109,103 @@ func AudioPlayer(file string, name string) {
 	p := widgets.NewParagraph()
 	p.Title = "Playing"
 	p.Text = name
-	p.SetRect(0, 0, 40, 3)
+	p.SetRect(0, 0, 50, 3)
 	p.TitleStyle.Fg = ui.Color(TitleThemeColor)
 	p.BorderStyle.Fg = ui.Color(BorderThemeColor)
+
+	posGauge := widgets.NewGauge()
+	posGauge.Title = "Position"
+	posGauge.Percent = 0
+	posGauge.SetRect(0, 3, 50, 6)
+	posGauge.TitleStyle.Fg = ui.Color(TitleThemeColor)
+	posGauge.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	volGauge := widgets.NewGauge()
 	volGauge.Title = "Volume"
 	volGauge.Percent = 50
-	volGauge.SetRect(0, 3, 40, 6)
+	volGauge.SetRect(0, 6, 50, 9)
 	volGauge.TitleStyle.Fg = ui.Color(TitleThemeColor)
 	volGauge.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	speedGauge := widgets.NewGauge()
 	speedGauge.Title = "Speed"
 	speedGauge.Percent = 50
-	speedGauge.SetRect(0, 6, 40, 9)
+	speedGauge.SetRect(0, 9, 50, 12)
 	speedGauge.TitleStyle.Fg = ui.Color(TitleThemeColor)
 	speedGauge.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	c := widgets.NewParagraph()
 	c.Text = `Pause / Play: [ENTER]
+Position: [← →]
 Volume: [↓ ↑]
-Speed:  [← →]
+Speed:  [A / S]
 Normal Speed: [N]
-Back to Menu: [Backspace]
+Back to Menu: [BACKSPACE]
 	`
-	c.SetRect(0, 9, 40, 16)
+	c.SetRect(0, 12, 50, 19)
 	c.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
 	uiEvents := ui.PollEvents()
 	ticker := time.NewTicker(time.Second).C
 
 	draw := func() {
-		ui.Render(p, c, volGauge, speedGauge)
+		ui.Render(p, c, posGauge, volGauge, speedGauge)
 	}
 
 	// Detect keys
 	for {
+		newPos := streamer.Position()
+
+		position := format.SampleRate.D(streamer.Position())
+		length := format.SampleRate.D(streamer.Len())
+
+		positionStatus := 100 * (float32(position.Round(time.Second)) / float32(length.Round(time.Second)))
+		posGauge.Percent = int(positionStatus)
 
 		select {
 		case e := <-uiEvents:
 			switch e.ID {
 			case "<Enter>": // pause audio
 				ctrl.Paused = !ctrl.Paused
+
 			case "<Up>": // increase volume
 				volume.Volume += 0.1
 				volGauge.Percent += 2
+
 			case "<Down>": // decrease volume
 				volume.Volume -= 0.1
 				volGauge.Percent -= 2
-			case "<Right>": // increase speed by x1.1
-				speedy.SetRatio(speedy.Ratio() + 0.1)
-				speedGauge.Percent += 2
-			case "<Left>": // decrease speed by x1.1
+
+			case "<Left>", "<Right>":
+				speaker.Lock()
+				if e.ID == "<Left>" {
+					newPos -= int(format.SampleRate.N(time.Second))
+				} else if e.ID == "<Right>" {
+					newPos += int(format.SampleRate.N(time.Second))
+				}
+				if newPos < 0 {
+					newPos = 0
+				}
+				if newPos >= streamer.Len() {
+					newPos = streamer.Len() - 1
+				}
+				if err := streamer.Seek(newPos); err != nil {
+					fmt.Println(err)
+				}
+				speaker.Unlock()
+
+			case "a":
 				speedy.SetRatio(speedy.Ratio() - 0.1)
 				speedGauge.Percent -= 2
+			
+			case "s":
+				speedy.SetRatio(speedy.Ratio() + 0.1)
+				speedGauge.Percent += 2
+
 			case "n": // Normalize speed
 				speedy.SetRatio(1)
 				speedGauge.Percent = 50
+
 			case "<C-<Backspace>>": // go back to menu
 				ctrl.Paused = !ctrl.Paused
 				Menu()
@@ -180,12 +219,15 @@ Back to Menu: [Backspace]
 		case volume.Volume >= 2:
 			volume.Volume = 2
 			volGauge.Percent = 100
+
 		case volume.Volume <= -2:
 			volume.Volume = -2
 			volGauge.Percent = 0
+
 		case speedy.Ratio() >= 2:
 			speedy.SetRatio(2)
 			speedGauge.Percent = 100
+
 		case speedy.Ratio() <= 0.5:
 			speedy.SetRatio(0.5)
 			speedGauge.Percent = 0
