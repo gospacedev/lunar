@@ -113,6 +113,14 @@ func AudioPlayer(file string, name string) {
 	p.TitleStyle.Fg = ui.Color(TitleThemeColor)
 	p.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
+	updateParagraph := func(count int) {
+		if count%2 == 0 {
+			p.TextStyle.Fg = ui.Color(TitleThemeColor)
+		} else {
+			p.TextStyle.Fg = ui.ColorWhite
+		}
+	}
+
 	posGauge := widgets.NewGauge()
 	posGauge.Title = "Position"
 	posGauge.Percent = 0
@@ -145,6 +153,8 @@ Back to Menu: [BACKSPACE]
 	c.SetRect(0, 12, 50, 19)
 	c.BorderStyle.Fg = ui.Color(BorderThemeColor)
 
+	tickerCount := 1
+	tickerCount++
 	uiEvents := ui.PollEvents()
 	ticker := time.NewTicker(time.Second).C
 
@@ -211,7 +221,9 @@ Back to Menu: [BACKSPACE]
 				Menu()
 			}
 		case <-ticker:
+			updateParagraph(tickerCount)
 			draw()
+			tickerCount++
 		}
 
 		//set max and min volume and speed
