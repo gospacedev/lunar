@@ -18,7 +18,7 @@ Lunar is a groovy music player for terminal enthusiasts.
 
 - Change how Lunar looks with the different built-in color themes.
 
-- Audio can be looped, pause/resume, change volume, and playback speed.
+- Audio can be looped, pause/resume, change position, change volume, and playback speed.
 
 ## Install
 
@@ -44,10 +44,10 @@ Run Lunar to explore music:
 lunar
 ```
 
-![Screenshot (224)](https://user-images.githubusercontent.com/83633399/201451181-cb210bbf-010b-4c54-bd64-ac2726109b06.png)
+![Screenshot (230)](https://user-images.githubusercontent.com/83633399/201524750-94267cca-fc3f-4c16-91b5-ed7f9b535016.png)
 
 Play with the music:
 
-![Screenshot (179)](https://user-images.githubusercontent.com/83633399/199719026-1b55b92c-8df3-49f6-ba83-d34dff4bc16e.png)
+![Screenshot (235)](https://user-images.githubusercontent.com/83633399/201524728-1ae12760-1ae1-4120-939c-0f2579a31560.png)
 
 Go to documents to find more about [color themes](https://github.com/gospacedev/lunar/blob/master/doc/themes.md) and how to change them.
