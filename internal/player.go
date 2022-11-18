@@ -207,7 +207,7 @@ Back to Menu: [BACKSPACE]
 			case "a":
 				speedy.SetRatio(speedy.Ratio() - 0.1)
 				speedGauge.Percent -= 2
-			
+
 			case "s":
 				speedy.SetRatio(speedy.Ratio() + 0.1)
 				speedGauge.Percent += 2
