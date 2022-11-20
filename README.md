@@ -1,4 +1,4 @@
-# Lunar
+# lunar
 
 [![Go](https://github.com/gospacedev/lunar/actions/workflows/go.yml/badge.svg)](https://github.com/gospacedev/lunar/actions/workflows/go.yml)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/gospacedev/lunar/blob/master/LICENSE)
