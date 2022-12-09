@@ -20,26 +20,26 @@ To build from the source make sure to have [Go](https://go.dev/) installed, then
 go install github.com\gospacedev\lunar@latest
 ```
 
-Alternatively, you can download the binary from the [release](https://github.com/gospacedev/lunar/releases) page.
+You can download the binary from the [release](https://github.com/gospacedev/lunar/releases) page.
 
 ## Guide
 
-Change the filepath to where your music is stored:
+Change the filepath to where your audio files are stored:
 
 ```powershell
 lunar newpath "C:\Users\grant\Music"
 Filepath successfully added
 ```
 
-Run Lunar to explore music:
+Run Lunar to explore:
 
 ```powershell
 lunar
 ```
 
-![Screenshot (230)](https://user-images.githubusercontent.com/83633399/201524750-94267cca-fc3f-4c16-91b5-ed7f9b535016.png)
+Select what audio you want to play:
 
-Play with the music:
+![Screenshot (230)](https://user-images.githubusercontent.com/83633399/201524750-94267cca-fc3f-4c16-91b5-ed7f9b535016.png)
 
 ![Screenshot (235)](https://user-images.githubusercontent.com/83633399/201524728-1ae12760-1ae1-4120-939c-0f2579a31560.png)
 
