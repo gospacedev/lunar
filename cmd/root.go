@@ -25,8 +25,8 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "lunar",
-	Short: "Lunar is a CLI Music Player",
-	Long:  `Lunar is a CLI Music Player for terminal enthusiasts`,
+	Short: "Lunar is a fast command-line audio player",
+	Long:  `Lunar is a fast command-line audio player for terminal enthusiasts`,
 	Run: func(cmd *cobra.Command, args []string) {
 		internal.Menu()
 	},
