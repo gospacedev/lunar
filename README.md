@@ -3,7 +3,7 @@
 [![Go](https://github.com/gospacedev/lunar/actions/workflows/go.yml/badge.svg)](https://github.com/gospacedev/lunar/actions/workflows/go.yml)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/gospacedev/lunar/blob/master/LICENSE)
 
-Lunar is a groovy music player for terminal enthusiasts.
+Lunar is a fast music player for terminal enthusiasts.
 
 ## Features
 
