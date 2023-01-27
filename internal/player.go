@@ -233,8 +233,11 @@ Back to Menu: [BACKSPACE]
 			volGauge.Percent = 100
 
 		case volume.Volume <= -2:
-			volume.Volume = -2
+			volume.Silent = true
 			volGauge.Percent = 0
+
+		case volume.Volume > -2:
+			volume.Silent = false
 
 		case speedy.Ratio() >= 2:
 			speedy.SetRatio(2)
