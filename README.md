@@ -36,7 +36,7 @@ Now you're ready to run Lunar:
 lunar
 ```
 
-You can then select the audio you want to play. For more information on color themes and how to change them, please refer to the Lunar documentation:
+You can then select the audio you want to play. For more information on [color themes](https://github.com/gospacedev/lunar/blob/master/doc/themes.md) and how to change them, please refer to the Lunar documentation:
 
 ![Screenshot (230)](https://user-images.githubusercontent.com/83633399/201524750-94267cca-fc3f-4c16-91b5-ed7f9b535016.png)
 
