@@ -35,8 +35,8 @@ import (
 	"github.com/gizak/termui/v3/widgets"
 )
 
-// GenericDecoder detects different audio formats then decodes it
-func GenericDecoder(name string, f *os.File) (beep.StreamSeekCloser, beep.Format, error) {
+// UniversalDecoder detects different audio formats then decodes it
+func UniversalDecoder(name string, f *os.File) (beep.StreamSeekCloser, beep.Format, error) {
 	switch {
 	case strings.HasSuffix(name, ".mp3"):
 		return mp3.Decode(f)
@@ -64,7 +64,7 @@ func AudioPlayer(file string, name string) {
 		log.Fatal(err)
 	}
 
-	streamer, format, err := GenericDecoder(name, f)
+	streamer, format, err := UniversalDecoder(name, f)
 	if err != nil {
 		log.Fatal(err)
 	}
